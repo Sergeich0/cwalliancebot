@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import me.sergeich0.cwalliancebot.converter.AlliancePointOfInterestConverter;
 import me.sergeich0.cwalliancebot.dto.AlliancePointOfInterestDTO;
 import me.sergeich0.cwalliancebot.entity.AlliancePointOfInterest;
-import me.sergeich0.cwalliancebot.repositorie.PoiRepository;
+import me.sergeich0.cwalliancebot.repository.PoiRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

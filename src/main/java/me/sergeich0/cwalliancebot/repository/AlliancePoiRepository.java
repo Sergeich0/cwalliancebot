@@ -1,4 +1,4 @@
-package me.sergeich0.cwalliancebot.repositorie;
+package me.sergeich0.cwalliancebot.repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
