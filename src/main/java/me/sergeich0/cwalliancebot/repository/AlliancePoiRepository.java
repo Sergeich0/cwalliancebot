@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public class AlliancePoiRepository implements PoiRepository {
 
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     @Override
     public void save(AlliancePointOfInterest poi) {
