@@ -4,8 +4,6 @@ import me.sergeich0.cwalliancebot.dto.AlliancePointOfInterestDTO;
 import me.sergeich0.cwalliancebot.entity.AlliancePointOfInterest;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 public class AlliancePointOfInterestConverter implements Converter<AlliancePointOfInterest, AlliancePointOfInterestDTO> {
     @Override
@@ -36,17 +34,4 @@ public class AlliancePointOfInterestConverter implements Converter<AlliancePoint
                 .active(entity.isActive()).build();
     }
 
-    @Override
-    public List<AlliancePointOfInterest> toEntityList(List<AlliancePointOfInterestDTO> dtoList) {
-        return dtoList.stream()
-                .map(this::toEntity)
-                .toList();
-    }
-
-    @Override
-    public List<AlliancePointOfInterestDTO> toDTOList(List<AlliancePointOfInterest> entityList) {
-        return entityList.stream()
-                .map(this::toDTO)
-                .toList();
-    }
 }

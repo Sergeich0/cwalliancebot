@@ -7,7 +7,15 @@ public interface Converter<E, D> {
 
     D toDTO(E entity);
 
-    List<E> toEntityList(List<D> dtoList);
+    default List<E> toEntityList(List<D> dtoList) {
+        return dtoList.stream()
+                .map(this::toEntity)
+                .toList();
+    }
 
-    List<D> toDTOList(List<E> entityList);
+    default List<D> toDTOList(List<E> entityList) {
+        return entityList.stream()
+                .map(this::toDTO)
+                .toList();
+    }
 }
