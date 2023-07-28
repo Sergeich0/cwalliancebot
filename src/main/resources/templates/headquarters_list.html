@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Headquarters list</title>
+</head>
+<body>
+<h2>Headquarters</h2>
+
+    <div>
+        <ul>
+            <li th:each="poi : ${pois}">
+                <a th:href="@{poi/{code}(code=${poi.code})}">
+                    <span th:text="${poi.name}"> name </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+<a th:href="@{/poi}">POI list</a>
+<div th:replace="~{fragments/footer :: footer}"> ... </div>
+</body>
+</html>

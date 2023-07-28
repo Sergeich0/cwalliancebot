@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:if="poi != null" th:text="${poi.name} + ' lvl.' + ${poi.level}"> POI </title>
+    <title th:if="poi == null"> POI doesn't exists </title>
+</head>
+<body>
+
+<div th:if="${poi == null}">
+    <span> No POI here </span>
+    <a th:href="@{/poi}">Back to POI list</a>
+</div>
+<div th:if="${poi != null}">
+    <ul>
+        <li>
+            <span> Type: [[${poi.type.toString().toLowerCase()}]] </span>
+        </li>
+        <li>
+            <span> Name: [[${poi.name}]] </span>
+        </li>
+        <li th:if="${poi.type.toString() == 'LOCATION'}">
+            <span> Level: [[${poi.level}]] </span>
+        </li>
+        <li>
+            <span th:if="${poi.active}"> Status: active <a th:href="@{{code}/deactivate(code=${poi.code})}"> (deactivate) </a></span>
+            <span th:unless="${poi.active}"> Status: inactive <a th:href="@{{code}/activate(code=${poi.code})}"> (activate) </a> </span>
+        </li>
+    </ul>
+    <a th:if="${poi.type.toString() == 'HEADQUARTER'}" th:href="@{/headquarters}">Back to headquarters list</a>
+    <a th:if="${poi.type.toString() == 'LOCATION'}" th:href="@{/poi}">Back to POI list</a>
+</div>
+<div th:replace="~{fragments/footer :: footer}"> ... </div>
+</body>
+</html>

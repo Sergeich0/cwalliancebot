@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>POI list</title>
+</head>
+<body>
+<h2>POI List by levels</h2>
+
+    <div th:each="poiList : ${pois}">
+        <h3 th:text="${poiList.key}"></h3>
+        <ul>
+            <li th:each="poi : ${poiList.value}">
+                <a th:href="@{poi/{code}(code=${poi.code})}">
+                    <span th:text="${poi.name}"> name </span>
+                    <span> (lvl.[[${poi.level}]]) </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+<a th:href="@{/headquarters}">Headquarters list</a>
+<div th:replace="~{fragments/footer :: footer}"> ... </div>
+</body>
+</html>
